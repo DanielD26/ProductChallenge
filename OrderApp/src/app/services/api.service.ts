@@ -9,7 +9,7 @@ import { Product } from '../models/product';
   providedIn: 'root'
 })
 export class ApiService {
-  readonly baseUrl: string = 'https://localhost:5001/'
+  readonly baseUrl: string = 'https://danielchallengeapi.azurewebsites.net/'
   constructor(private _http: HttpClient) { }
 
   getCustomers(): Observable<Customer[]> {

@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/c6d702b0-4471-4d23-ba75-a4d908b1213d/AppServices/subscriptions/c6d702b0-4471-4d23-ba75-a4d908b1213d/resourceGroups/appsvc_windows_centralus/providers/Microsoft.Web/sites/danielChallengeAPI",
+    "appService.deploySubpath": "Backend\\API"
+}
