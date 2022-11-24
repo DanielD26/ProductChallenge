@@ -1,0 +1,83 @@
+<div>
+    <h1>Place an Order!</h1>
+    <div>
+        <h2>Customers: </h2>
+        <select [(ngModel)]="selectedCustomer">
+            <option *ngFor="let c of customerList" [ngValue]="c">
+                {{c.fullName}}
+            </option>
+        </select>
+    </div>
+    <div>
+        <h2>Products: </h2>
+        <select [(ngModel)]="selectedProduct">
+            <option *ngFor="let p of productList" [ngValue]="p">
+                {{p.description}}
+            </option>
+        </select>
+    </div>
+    <div>
+        <h2>Quantity: </h2>
+        <input type="number" [(ngModel)]="qty">
+    </div>
+    <div>
+        <h2>Shipping method: </h2>
+        <select [(ngModel)]="selectedShipMode">
+            <option>Second Class</option>
+            <option>Standard Class</option>
+            <option>First Class</option>
+            <option>Overnight Express</option>
+        </select>
+    </div>
+
+    <button (click)="createOrder()">Place Order!</button>
+
+</div>
+
+<div>
+    <h2>Delete Order</h2>
+    <select [(ngModel)]="deleteOrder">
+        <option *ngFor="let o of orderList" [ngValue]="o">
+            Quantity: {{o.quantity}} |
+            Product ID: {{o.productID}} |
+            Customer ID: {{o.custID}} |
+        </option>
+    </select>
+    <br>
+    <button (click)="removeOrder()">Delete Order!</button>
+</div>
+
+<div>
+    <h2>Edit Order</h2>
+    <select [(ngModel)]="editSelectedOrder" [value]="orderList[0]" (change)="chosenOrder()">
+        <option *ngFor="let o of orderList" [ngValue]="o">
+            {{o.quantity}}
+            {{o.productID}}
+        </option>
+    </select>
+
+    <h2>Customer:</h2>
+    <select [(ngModel)]="editOrder.custID">
+        <option *ngFor="let c of customerList" [ngValue]="c.custID">
+            {{c.fullName}} + {{c.custID}}
+        </option>
+    </select>
+
+    <h2>Product: </h2>
+    <select [(ngModel)]="editOrder.productID">
+        <option *ngFor="let p of productList" [ngValue]="p.productID">
+            {{p.productID}}
+        </option>
+    </select>
+    <h2>Quantity: </h2>
+    <input type="number" [(ngModel)]="editOrder.quantity">
+
+    <h2>Shipping Mode: </h2>
+    <select [(ngModel)]="editOrder.shipMode">
+        <option>Second Class</option>
+        <option>Standard Class</option>
+        <option>First Class</option>
+        <option>Overnight Express</option>
+    </select>
+    <button (click)="changeOrder()">Edit Order!</button>
+</div>
